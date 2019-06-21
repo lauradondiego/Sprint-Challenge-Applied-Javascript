@@ -5,7 +5,7 @@ class TabLink {
     
     // Get the `data-tab` value from this.tabElement and store it here
     this.tabData = this.tabElement.dataset.tab;
-    
+    console.log(this.tabData)
     // We need to find out if a user clicked 'all' cards or a specific category.
     // Follow the instructions below to accomplish this task:    
     
@@ -16,15 +16,17 @@ class TabLink {
     this.cards = document.querySelectorAll('.card')
     } else {
       // else if `all` is false, only select the cards with matching this.tabData values
-    this.cards = document.querySelectorAll(`.tabs-item[data-tab='${this.tabData}']`);
-    };
+    this.cards = document.querySelectorAll(`.card[data-tab='${this.tabData}']`);
+   console.log(this.cards)
+  };
     // Delete this comment block when you work on the if statement
-console.log(this.cards);
+// console.log(this.cards);
      // Map over the newly converted NodeList we just created in our if statement above.
     //  Convert each this.cards element into a new instance of the TabCard class.
     // Pass in a card object to the TabCard class. 
-    this.cards = Array.from(this.cards).map( x => this.cards());
-    this.tabCard = new TabCard(this.cards);
+    this.cards = Array.from(this.cards).map(element => new TabCard(element));
+
+    // this.tabCard = new TabCard(this.cards[0]);
 
     // Add a click event that invokes this.selectTab
     this.tabElement.addEventListener('click', () => this.selectTab());
@@ -40,9 +42,9 @@ console.log(this.cards);
 
     // Select all of the elements with the .card class on them
     const cards = document.querySelectorAll('.card');
-
+    // console.log(cards)
     // Iterate through the NodeList setting the display style each one to 'none'
-    cards.forEach(tabList => tabList.classList.style.display = "none");
+    cards.forEach(tabList => tabList.style.display = "none");
     
     // Add a class of ".active-tab" to this.tabElement
     this.tabElement.classList.add('.active-tab');
@@ -77,6 +79,7 @@ and pass in each tab as a parameter
 
 */
 let tabs = document.querySelectorAll('.tab');
+// console.log(tabs)
 tabs.forEach((tabs) => {
   return new TabLink(tabs);
 });

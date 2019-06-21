@@ -51,7 +51,7 @@ anything like that, you need to convert it into an array.
 
 5. What is a component?
 
-The HTML, CSS, JS all together and can be reused in a site. We can add tabs for instance in our
+A component is a class - The HTML, CSS, JS all together and can be reused in a site. We can add tabs for instance in our
 HTML and it will automatically be updated with set styles in CSS.
 
 ### Git Set up
